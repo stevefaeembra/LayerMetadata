@@ -1,4 +1,4 @@
-Layer MetaData is a plugin which allows you to browse metadata for all layers in the current project.
+Layer MetaData is a QGIS plugin which allows you to browse metadata for all layers in the current project.
 
 You can group layers by a number of different factors, such as CRS, class (raster/vector), provider (GDAL/OGR/postgres) or extent, for example.
 
