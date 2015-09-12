@@ -25,9 +25,9 @@ email=stevendkay@gmail.com
 # Tags are comma separated with spaces allowed
 tags=layer,panel,dock,alternative,metadata
 
-homepage=
-tracker=
-repository=
+homepage=http://www.stevefaeembra.com/blog/2015/9/12/new-qgis-plugin-layer-metadata
+tracker=https://github.com/stevefaeembra/LayerMetadata/issues
+repository=https://github.com/stevefaeembra/LayerMetadata
 category=Plugins
 icon=icon.png
 # experimental flag

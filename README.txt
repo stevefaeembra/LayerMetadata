@@ -1,33 +1,7 @@
-Plugin Builder Results
+Layer MetaData is a plugin which allows you to browse metadata for all layers in the current project.
 
-Your plugin LayerMetadata was created in:
-    /home/steven/git/LayerMetadata/LayerMetadata
+You can group layers by a number of different factors, such as CRS, class (raster/vector), provider (GDAL/OGR/postgres) or extent, for example.
 
-Your QGIS plugin directory is located at:
-    /home/steven/.qgis2/python/plugins
+You can then drill-down to individual metadata items, and copy their values to the clipboard.
 
-What's Next:
-
-  * Copy the entire directory containing your new plugin to the QGIS plugin
-    directory
-
-  * Compile the resources file using pyrcc4
-
-  * Run the tests (``make test``)
-
-  * Test the plugin by enabling it in the QGIS plugin manager
-
-  * Customize it by editing the implementation file: ``LayerMetadata.py``
-
-  * Create your own custom icon, replacing the default icon.png
-
-  * Modify your user interface by opening LayerMetadata.ui in Qt Designer
-
-  * You can use the Makefile to compile your Ui and resource files when
-    you make changes. This requires GNU make (gmake)
-
-For more information, see the PyQGIS Developer Cookbook at:
-http://www.qgis.org/pyqgis-cookbook/index.html
-
-(C) 2011-2014 GeoApt LLC - geoapt.com
-Git revision : $Format:%H$
+It's implemented as a Dock, use "View > Panels > Layer Metadata" to show the dock.
