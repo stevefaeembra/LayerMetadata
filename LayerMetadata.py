@@ -255,11 +255,9 @@ class LayerMetadata:
         '''
         changed a checkbox, so refresh list of yesplease
         '''
-        print "Flipped visibility"
         self.yesplease = []
         for x in range(0,self.dock.tabShow.rowCount()):
             checked = self.checkboxes[x].isChecked()
-            print "%s - %s " % (self.props[x],checked)
             if checked:
                 self.yesplease.append(self.props[x])
         self.changedGrouping()
@@ -283,35 +281,30 @@ class LayerMetadata:
             dict = {}
             dict['layername'] = layer.name()
             
-            prov = layer.dataProvider()
-            print "Got provider for %s" % layer.name()
-            '''
+            try:
+                prov = layer.dataProvider()
             except:
-            
-                #web layers (e.g. openlayers) have minimal data
-            
+                # web layers (e.g. openlayers) do not have a provider
                 dict['crs'] = str(layer.crs().authid())
                 dict['provider'] = 'No provider (e.g. OpenLayers)'
                 dict['class'] = 'Plugin'
                 ldata[ix] = dict
                 ix += 1
-                #print "WARN: No provider for %s" % layer.name()
                 continue
-            '''
+            
             dict['url'] = prov.dataSourceUri()
             dict['extent'] = prov.extent().toString(5)
             dict['provider'] = prov.name()
             dict['crs'] = str(layer.crs().authid())
             dict['proj4'] = str(layer.crs().toProj4())
+            
             if layer.__class__.__name__ == 'QgsVectorLayer':
                 dict['class'] = 'Vector'
-                print "OK Vector - %s" % layer.name()
             elif layer.__class__.__name__ == 'QgsRasterLayer':
                 dict['class'] = 'Raster'
-                print "OK Raster - %s" % layer.name()
             else:
                 dict['class'] = 'Unknown'
-                print "OK Unknown - %s" % layer.name()
+            
             dict['id'] = layer.id()
             if dict['class']=='Vector':
                 dict['geom'] = str(self.getgeometrytypeforvector(layer.geometryType()))
@@ -337,26 +330,17 @@ class LayerMetadata:
                     s.append('band %d nodata : %s' % (bix, str(prov.srcNoDataValue(bix))))
                 dict['band info']="\n".join([x for x in s])
             ldata[ix] = dict
-            print "Added %s to ldata[%d]" % (dict['layername'],ix)
             ix += 1
         
-        print "Got info on %d layers" % len(ldata)
-        for x in sorted(ldata):
-            print "="*80
-            print "Layer %d" % x
-            print ldata[x]
-            print "="*80
-            
+        ''' find unique values '''
         distinct = []
         for x in ldata:
             try :
                 vall = ldata[x][groupby]
             except:
-                vall = "Undefined"
+                vall = "N/A"
             if vall not in distinct:
                 distinct.append(vall)
-        
-        print distinct
         
         for val in distinct:
             ''' add distinct values for the groupby field at level 1 '''
@@ -394,7 +378,6 @@ class LayerMetadata:
             return s[3]
     
     def changedGrouping(self):
-        print "Changed grouping"
         items = self.getItemsForTreeWidget(self.dlg.cbGrouping)
         
         self.dlg.treeWidget.clear()
@@ -415,8 +398,3 @@ class LayerMetadata:
         self.reset()
         # Run the dialog event loop
         result = self.dlg.exec_()
-        # See if OK was pressed
-        if result:
-            # Do something useful here - delete the line containing pass and
-            # substitute with your code.
-            pass
