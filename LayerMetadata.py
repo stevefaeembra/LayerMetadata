@@ -282,18 +282,22 @@ class LayerMetadata:
         for layer in layers:
             dict = {}
             dict['layername'] = layer.name()
-            try:
-                prov = layer.dataProvider()
+            
+            prov = layer.dataProvider()
+            print "Got provider for %s" % layer.name()
+            '''
             except:
-                '''
-                web layers (e.g. openlayers) have minimal data
-                '''
+            
+                #web layers (e.g. openlayers) have minimal data
+            
                 dict['crs'] = str(layer.crs().authid())
                 dict['provider'] = 'No provider (e.g. OpenLayers)'
                 dict['class'] = 'Plugin'
                 ldata[ix] = dict
                 ix += 1
+                #print "WARN: No provider for %s" % layer.name()
                 continue
+            '''
             dict['url'] = prov.dataSourceUri()
             dict['extent'] = prov.extent().toString(5)
             dict['provider'] = prov.name()
@@ -301,10 +305,13 @@ class LayerMetadata:
             dict['proj4'] = str(layer.crs().toProj4())
             if layer.__class__.__name__ == 'QgsVectorLayer':
                 dict['class'] = 'Vector'
+                print "OK Vector - %s" % layer.name()
             elif layer.__class__.__name__ == 'QgsRasterLayer':
                 dict['class'] = 'Raster'
+                print "OK Raster - %s" % layer.name()
             else:
                 dict['class'] = 'Unknown'
+                print "OK Unknown - %s" % layer.name()
             dict['id'] = layer.id()
             if dict['class']=='Vector':
                 dict['geom'] = str(self.getgeometrytypeforvector(layer.geometryType()))
@@ -325,13 +332,21 @@ class LayerMetadata:
                 numbands = prov.bandCount()
                 dict['bands'] = str(numbands)
                 s=[]
-                for ix in range(1,numbands+1):
-                    s.append('band %d datatype : %s' % (ix,self.getdatatypeforraster(prov.dataType(ix))))
-                    s.append('band %d nodata : %s' % (ix, str(prov.srcNoDataValue(ix))))
+                for bix in range(1,numbands+1):
+                    s.append('band %d datatype : %s' % (bix,self.getdatatypeforraster(prov.dataType(bix))))
+                    s.append('band %d nodata : %s' % (bix, str(prov.srcNoDataValue(bix))))
                 dict['band info']="\n".join([x for x in s])
             ldata[ix] = dict
+            print "Added %s to ldata[%d]" % (dict['layername'],ix)
             ix += 1
         
+        print "Got info on %d layers" % len(ldata)
+        for x in sorted(ldata):
+            print "="*80
+            print "Layer %d" % x
+            print ldata[x]
+            print "="*80
+            
         distinct = []
         for x in ldata:
             try :
@@ -340,6 +355,8 @@ class LayerMetadata:
                 vall = "Undefined"
             if vall not in distinct:
                 distinct.append(vall)
+        
+        print distinct
         
         for val in distinct:
             ''' add distinct values for the groupby field at level 1 '''

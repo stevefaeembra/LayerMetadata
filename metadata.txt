@@ -7,9 +7,10 @@
 # This file should be included when you package your plugin.# Mandatory items:
 
 [general]
-name=LayerMetadata
+name=Layer Metadata Dock
 qgisMinimumVersion=2.0
-description=An alternative layer info panel which can group layers by CRS, provider or other properties. Also gives quick copy and paste access to metadata such as extent, uri - potentially a lot quicker than using the existing 'properties'. 
+description=An alternative layer dock panel for quick access to basic layer metadata.  
+about=<p>The standard layers plugin shows symbology. This plugin adds an alternative layer dock which is optimised for basic metadata access</p><p>You can group layers by a number of criteria such as type, provider or CRS</p><p>You can then drill down into basic layer metadata fields such as proj4, extent, field info and copy these to the clipboard with <b>Ctrl-C</b></p><p>Open the dock using <b>View > Panels > Layer Metadata</b></p><p>A dialog based version is also available using the toolbar icon... it's not as fully-featured, but gives much more space on smaller screens.</p>
 version=0.1
 author=Steven Kay
 email=stevendkay@gmail.com
@@ -22,7 +23,7 @@ email=stevendkay@gmail.com
 # changelog=
 
 # Tags are comma separated with spaces allowed
-tags=layer,panel,alternative
+tags=layer,panel,dock,alternative,metadata
 
 homepage=
 tracker=

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>628</width>
-    <height>548</height>
+    <width>624</width>
+    <height>636</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <widget class="QWidget" name="dockWidgetContents">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="0">
+    <item row="7" column="0">
      <widget class="QPushButton" name="pbRefresh">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(161, 226, 188);</string>
@@ -25,54 +25,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QComboBox" name="cbGrouping">
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <item>
-       <property name="text">
-        <string>class</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>crs</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>extent</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>geom</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>id</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>layername</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>provider</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>url</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="7" column="0" colspan="2">
+    <item row="10" column="0" colspan="2">
      <widget class="QLabel" name="label">
       <property name="font">
        <font>
@@ -85,10 +38,10 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
+    <item row="6" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -163,7 +116,7 @@
           <x>11</x>
           <y>42</y>
           <width>570</width>
-          <height>292</height>
+          <height>326</height>
          </rect>
         </property>
         <property name="alternatingRowColors">
@@ -209,32 +162,6 @@
          <string>Which metadata do you want to see?</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>343</y>
-          <width>97</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Save</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="geometry">
-         <rect>
-          <x>115</x>
-          <y>343</y>
-          <width>97</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Load</string>
-        </property>
-       </widget>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -266,6 +193,60 @@ You can also customise the plugin in the settings tab.</string>
         </item>
        </layout>
       </widget>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QComboBox" name="cbGrouping">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>class</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>crs</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>extent</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>geom</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>id</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>layername</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>provider</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>url</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Group layers by...</string>
+      </property>
      </widget>
     </item>
    </layout>
