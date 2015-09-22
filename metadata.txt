@@ -10,7 +10,7 @@
 name=Layer Metadata Dock
 qgisMinimumVersion=2.0
 description=An alternative layer dock panel for quick access to basic layer metadata.  
-about=<p>TThis plugin adds a dock which you can use to group layers by a number of factors, like CRS, geometry type, extent etc.</p><p>You can access metadata across layers more easily, and copy values to the clipboard with Ctrl-C.</p><p>Access the dock using <b>View > Panels > Layer Metadata</b></p>
+about=<p>This plugin adds a dock which you can use to group layers by a number of factors, like CRS, geometry type, extent etc.</p><p>You can access metadata across layers more easily, and copy values to the clipboard with Ctrl-C.</p><p>Access the dock using <b>View > Panels > Layer Metadata</b></p>
 version=0.1
 author=Steven Kay
 email=stevendkay@gmail.com
